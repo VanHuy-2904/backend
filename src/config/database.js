@@ -10,7 +10,7 @@ const mysql = require('mysql2');
 //     database: 'vanhuy'
 //   });
 
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     host: 'localhost',
     port: 3307,
     user: 'root',

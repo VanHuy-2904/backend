@@ -17,13 +17,26 @@ const dangnhap= (req, res) => {
 
     connection.query(
         'select * from Users where email = ? and matkhau = ?', [username, password],
-        function(err, results) {
+        function(err, Results) {    
+            if(err) {
+            console.error('Loi dang nhap', err)
+            res.status(500).json({success: false, message: 'Da xay ra loi'})
+        }
+     else {
+        if(Results.length>0) {
+            res.status(200).json({success: true, message: 'Dang nhap thanh cong'})
+        }
+        else res.status(500).json({success: false, message: 'Sai tai khoan hoac mk'})
+
+    }
+}
+        
+        
            
-           console.log("Results = ", results); // results contains rows returned by server
-           // console.log("Fields = ",fields); // fields contains extra meta data about results, if available
-           if(results) res.send('TC')
-         }
+         
+         
      );
+        
             //  const username = req.body.taikhoan; 
             //  console.log(username)
             //  if(username !== email) {
