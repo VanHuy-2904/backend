@@ -14,7 +14,7 @@ const dotenv = require('dotenv')
 const dangnhap= (req, res) => {
     let username = req.body.taikhoan;
     let password = req.body.pass;
-
+    console.log(username)
     connection.query(
         'select * from Users where email = ? and matkhau = ?', [username, password],
         function(err, Results) {    
