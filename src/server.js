@@ -5,6 +5,7 @@ const port = 3000;
 const morgan = require('morgan');
 const configviewengine = require('./config/viewengine')
 const webrouter = require('./routes/web')
+const apirouter = require('./routes/api')
 const connection = require('./config/database')
 const cors = require('cors')
 
@@ -15,6 +16,8 @@ app.use(express.urlencoded({extended: true}))
 app.use(morgan('combined'));
 configviewengine(app)
 app.use('/', webrouter)
+app.use('/', apirouter)
+
 
 
 

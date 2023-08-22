@@ -1,25 +1,33 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-C
+    ompatible" content="ie=edge" />
+    <title>Home</title>
     <link rel="stylesheet" href="/css/style.css">
 
-</head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+
+    />
+  </head>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
   
-<style>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .topnav{
-    width: 100%;
-  }
-</style>
-
-<body>
+    .topnav{
+      width: 100%;
+    }
+  </style>
+  <body>
     <div class="topnav">
         <a href="/">Home</a>
         <a href="/create">Create Account</a>
@@ -28,11 +36,9 @@
         <a class="active" href="/HomeCards">Danh sách Card</a>
 
       </div>
-
-      <div class="container " style = "width: 100%">
-        <!-- <a href="add.html" class="btn btn-info">Thêm mới học sinh</a> -->
-        <table class="table" >
-          <thead>
+    <div class="container">
+      <table class="table">
+        <thead>
             <th>Id</th>
             <th>Tên Card</th>
             <th>Số Lượng</th>
@@ -42,11 +48,9 @@
             <th>Discount</th>
             <th>MaLoai</th>
             <th>Hang</th>
-
-  
-          </thead>
-          <tbody>
-            <%
+            <th>Chuc nang</th>
+        </thead>
+        <%
               for(var i=0; i<data.length; i++){  %>
                 
                 <tr>
@@ -55,7 +59,7 @@
                   <td><%=data[i]?.quantity %></td>
                   <td><%=data[i]?.price %></td>
                   <td><%=data[i]?.pricesale%></td>
-                  <td><%=data[i]?.imagecategory%></td>
+                  <td><img style = "width: 200px; height: 200px" src ="../image/MSI-GTX-1050-G.jpg"></td>
                   <td><%=data[i]?.discount%></td>
                   <td><%=data[i]?.MaLoai%></td>
                   <td><%=data[i]?.Hang%></td>
@@ -69,14 +73,9 @@
 
                   <% } %>
 
-          </tbody>
-        </table>
-      </div>
-      
-</body>
+
+        </tbody>
+      </table>
+    </div>
+  </body>
 </html>
-
-
-
-
-

@@ -25,6 +25,9 @@ const dangnhap= (req, res) => {
      else {
         if(Results.length>0) {
             res.status(200).json({success: true, message: 'Dang nhap thanh cong'})
+            connection.query('select Hoten from Users', function(err, ketqua){
+               console.log({data:ketqua})
+            })
         }
         else res.status(500).json({success: false, message: 'Sai tai khoan hoac mk'})
 
@@ -37,22 +40,9 @@ const dangnhap= (req, res) => {
          
      );
         
-            //  const username = req.body.taikhoan; 
-            //  console.log(username)
-            //  if(username !== email) {
-            //     res.send('TB')
-            //  }
- 
-            //  const validPassword = bcrypt.compare(
-            //      req.body.pass,
-            //      connection.Users.matkhau
-            //  )
-            //  if(!validPassword) {return res.status(401).send('Wrong Pass'), alert('Sai thogn tin')}
-            //  if(username && validPassword) {return res.status(200).send('dang nhap thanh cong'), alert('TC')}
-              
-  
+          
   }
- // }
+ 
 
  module.exports = {
     dangnhap

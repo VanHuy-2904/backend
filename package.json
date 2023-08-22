@@ -30,6 +30,7 @@
     "fixed": "^0.3.1",
     "handlebars": "^4.7.7",
     "moongose": "^1.0.0",
+    "mysql": "^2.18.1",
     "mysql2": "3.3.5"
   },
   "devDependencies": {

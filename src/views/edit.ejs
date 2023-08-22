@@ -29,24 +29,24 @@
   </div>
   <div class="container mt-3">
    <h3 class="text-center">Thêm Card</h3>
-   <form action="/add-card-result" method="post">
+   <form action="/update" method="post">
        <label for="name">title</label>
-       <input type="text" name="name" class="form-control">
+       <input type="text" name="name" class="form-control" value="<%=data.title%>">
        <label for="SL">quantity</label>
-       <input type="text" name="SL" class="form-control">
+       <input type="text" name="SL" class="form-control" value="<%=data.quantity%>">
        <label for="class">price</label>
-       <input type="text" name="GB" class="form-control">
+       <input type="text" name="GB" class="form-control" value="<%=data.price%>">
        <label for="class">pricesale</label>
-       <input type="text" name="GBS" class="form-control">
+       <input type="text" name="GBS" class="form-control" value="<%=data.pricesale%>">
        <label for="class">imagecategory</label>
-       <input type="text" name="HA" class="form-control">
+       <input type="text" name="HA" class="form-control" value="<%=data.imagecategory%>">
        <label for="class">Discount</label>
-       <input type="text" name="DC" class="form-control">
+       <input type="text" name="DC" class="form-control" value="<%=data.discount%>">
        <label for="class">MaLoai</label>
-       <input type="text" name="ML" class="form-control">
+       <input type="text" name="ML" class="form-control" value="<%=data.maloai%>">
        <label for="class">Hang</label>
-       <input type="text" name="Hang" class="form-control">
-       <input type="submit" value="Thêm mới" class="btn btn-primary mt-2"> <br>
+       <input type="text" name="Hang" class="form-control" value="<%=data.hang%>">
+       <input type="submit" value="Update" class="btn btn-primary mt-2"> <br>
        <a href="/">Quay lại?</a>
    </form>
   </div>

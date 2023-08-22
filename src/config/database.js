@@ -10,17 +10,24 @@ const mysql = require('mysql2');
 //     database: 'vanhuy'
 //   });
 
+// const connection = mysql.createConnection({
+//     host: 'localhost',
+//     port: 3307,
+//     user: 'root',
+//     password: '123456',
+//     database: 'vanhuy',
+//     waitForConnection: true,
+//     connectionLimit: 10,
+//     queueLimit: 0
+
+//   });
 const connection = mysql.createConnection({
-    host: 'localhost',
-    port: 3307,
-    user: 'root',
-    password: '123456',
-    database: 'vanhuy',
-    waitForConnection: true,
-    connectionLimit: 10,
-    queueLimit: 0
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'linhkien',
 
-  });
 
+});
 module.exports = connection;
   
