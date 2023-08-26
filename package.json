@@ -29,6 +29,7 @@
     "express-handlebars": "^7.0.7",
     "fixed": "^0.3.1",
     "handlebars": "^4.7.7",
+    "json-server": "^0.17.3",
     "moongose": "^1.0.0",
     "mysql": "^2.18.1",
     "mysql2": "3.3.5"

@@ -102,6 +102,7 @@ const { json } = require('express');
 
 
  const ADDCARDS = (req, res) => {
+
    let TenCard = req.body.name;
    let SoLuong = req.body.SL;
    let GiaBan = req.body.GB;
@@ -134,11 +135,25 @@ const { json } = require('express');
 
  
  const HomeCards = (req, res) =>{
+   let key = req.query.key
+   if(key==null){
    connection.query(`Select * from Products`, function(err, results){
       if(err) throw err;
       res.render('adminproc.ejs', ({data: results}))
       // res.status(200).json(results)
    })
+}
+else {
+   connection.query(
+      'select * from Products where title like "%"?"%"',[key],
+      function(err, results) {
+         console.log("Results = ", results); // results contains rows returned by server
+         // console.log("Fields = ",fields); // fields contains extra meta data about results, if available
+         
+         res.render('adminproc.ejs', ({data: results}))
+      }
+   );
+}
  }
 
 
@@ -214,9 +229,31 @@ const GetCart = (req, res) => {
        }
    );
  }
+  
+ const tkiem = (req, res) =>{
+   let key = req.query.key;
+   connection.query(
+      'select * from Products where title like "%"?"%"',[key],
+      function(err, results) {
+         console.log("Results = ", results); // results contains rows returned by server
+         // console.log("Fields = ",fields); // fields contains extra meta data about results, if available
+         
+          res.status(200).json(results)
+       }
+   );
+ }
 
-
-
+ const Xoamh = (req, res) => {
+   connection.query(
+      `delete from cart where id = ${req.params.id}`,
+      function(err, results) {
+         console.log("Results = ", results); // results contains rows returned by server
+         // console.log("Fields = ",fields); // fields contains extra meta data about results, if available
+         
+          res.status(200).json(results)
+       }
+   );
+ }
 
 
  const getHome = (req, res)=>{
@@ -243,5 +280,5 @@ const addCard = (req, res)=> {
 
  module.exports = {
     getHome, UpdateCard, POSTcreateUsers, GetProId, CreateAccount, GetUsers, login, GetCards, GetCPUs, GetCPUIs, DeleteCard, 
-    GetCPUAs, addCard, ADDCARDS, HomeCards, GetCart, ADDCART
+    GetCPUAs, addCard, ADDCARDS, HomeCards, GetCart, ADDCART, Xoamh
  };

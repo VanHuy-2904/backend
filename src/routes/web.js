@@ -1,6 +1,8 @@
 const express = require('express');
-const {getHome, ADDCART, POSTcreateUsers, CreateAccount,GetProId, UpdateCard, GetUsers, login, DeleteCard, GetCards, GetCPUs, GetCPUIs, GetCPUAs, addCard, ADDCARDS, HomeCards, GetCart}= require('../controllers/homeController');
+const {getHome, ADDCART, POSTcreateUsers,  CreateAccount,GetProId, UpdateCard, GetUsers, login, DeleteCard, GetCards, GetCPUs, GetCPUIs, GetCPUAs, addCard, ADDCARDS, 
+  HomeCards, GetCart, Xoamh}= require('../controllers/homeController');
 const {dangnhap} = require('../controllers/login')
+const{InsertCart} = require('../controllers/cartController')
 const router = express.Router();
 const connection = require('../config/database');
 const { Router } = require('express');
@@ -18,5 +20,8 @@ router.get('/HomeCards', HomeCards) // Home hiển thị sản phẩm
 router.get('/delete/:id', DeleteCard) // Xóa sản phẩm
 router.get('/edit/:id', GetProId)// In ra thong tin san pham can update
 router.post('/update', UpdateCard)
-router.get('/cart', ADDCART)
+router.get('/cart', ADDCART) // them vao gio hang
+router.post('/delete-cart', Xoamh)
+router.get('/update-cart', InsertCart)
+// router.get('/timkiem', tkiem)
   module.exports = router;
